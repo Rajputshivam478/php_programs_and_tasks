@@ -30,7 +30,7 @@ $arr = array(
     )
 );
 
-function print_array_values($arr)
+function print_array_values($arr)               //trying with loops
 {
 
     foreach ($arr as $k1 => $v1) {
@@ -61,7 +61,7 @@ function print_array_values($arr)
 
 }
 
-function print_arr($arr){
+function print_arr($arr){                        //complete task
 
     foreach($arr as $key => $value)
     {
