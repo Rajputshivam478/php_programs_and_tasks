@@ -21,7 +21,6 @@ foreach($_SESSION as $key => $value)
     }
     echo"</tr>";
 }
-
 ?>
 
 </table>

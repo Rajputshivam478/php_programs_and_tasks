@@ -10,12 +10,20 @@
             $username = $_REQUEST['username'];
             $password = $_REQUEST['password'];
 
-            foreach($_SESSION as $key => $value) {
-                if ($key == $username) {
-                    echo "username already exists";
-                } else {
-                    $_SESSION[$username] = array($f_name, $l_name, $dob, $email, $p_number, $username, $password);
-                    header('location: display_session_data.php');
+            if(count($_SESSION) == 0)
+            {
+                $_SESSION[$username] = array($f_name, $l_name, $dob, $email, $p_number, $username, $password);
+                header('location: display_session_data.php');
+            }
+            else
+            {
+                foreach($_SESSION as $key => $value) {
+                    if ($key == $username) {
+                        echo "username already exists";
+                    } else {
+                        $_SESSION[$username] = array($f_name, $l_name, $dob, $email, $p_number, $username, $password);
+                        header('location: display_session_data.php');
+                    }
                 }
             }
 
