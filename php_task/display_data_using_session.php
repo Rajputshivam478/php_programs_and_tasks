@@ -1,37 +1,4 @@
-<?php
-    session_start();
-    if (isset($_REQUEST['submit'])) {
-        if ($_REQUEST['password'] == $_REQUEST['c_password']) {
-            $f_name = $_REQUEST['f_name'];
-            $l_name = $_REQUEST['l_name'];
-            $dob = $_REQUEST['dob'];
-            $email = $_REQUEST['email'];
-            $p_number = $_REQUEST['p_number'];
-            $username = $_REQUEST['username'];
-            $password = $_REQUEST['password'];
-
-            if(count($_SESSION) == 0)
-            {
-                $_SESSION[$username] = array($f_name, $l_name, $dob, $email, $p_number, $username, $password);
-                header('location: display_session_data.php');
-            }
-            else
-            {
-                foreach($_SESSION as $key => $value) {
-                    if ($key == $username) {
-                        echo "username already exists";
-                    } else {
-                        $_SESSION[$username] = array($f_name, $l_name, $dob, $email, $p_number, $username, $password);
-                        header('location: display_session_data.php');
-                    }
-                }
-            }
-
-        } else {
-            echo "password and confirm password doesn't match...";
-        }
-    }
-?>
+<?php require('sending_session_data.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,6 +83,19 @@
                 </td>
             </tr>
         </form>
+    </table>
+    <br><br><br><br>
+    <table border="1" cellpadding="5px" align="center">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>D.O.B</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Username</th>
+            <th>Password</th>
+        </tr>
+        <?php include('display_session_data.php')?>
     </table>
 </body>
 
