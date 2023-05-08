@@ -1,6 +1,14 @@
 <?php
-$username = $_REQUEST['username'];
-include('edit_session_data.php');
+if (isset($_REQUEST['username'])) {
+    $username = $_REQUEST['username'];
+    $email = $_REQUEST['email'];
+    $password = $_REQUEST['password'];
+    $pnumber = $_REQUEST['pnumber'];
+    $fname = $_REQUEST['fname'];
+    $lname = $_REQUEST['lname'];
+    $dob = $_REQUEST['dob'];
+}
+include 'edit_session_data.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,73 +22,70 @@ include('edit_session_data.php');
 
 <body>
     <h1 align="center">Update Form </h1>
-    <table cellspacing=10px; align="center">
-        <form action="" method="post">
-            <tr>
-                <td>
-                    <label for="f_name">first name :</label>
-                </td>
-                <td>
-                    <input type="text" name="f_name" id="">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="l_name">last name :</label>
-                </td>
-                <td>
-                    <input type="text" name="l_name" id="">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="email">email :</label>
-                </td>
-                <td>
-                    <input type="email" name="email" id="">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="p_number">phone number :</label>
-                </td>
-                <td>
-                    <input type="number" name="p_number" id="">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="dob">D.O.B :</label>
-                </td>
-                <td>
-                    <input type="date" name="dob" id="">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="username">username :</label>
-                </td>
-                <td>
-                    <input type="text" name="username" id="" value=<?php echo $username ?> disabled>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="password">password :</label>
-                </td>
-                <td>
-                    <input type="password" name="password" id="">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" name="update">
-                </td>
-            </tr>
-        </form>
+    <form action="" method="post">
+        <table cellspacing="10px;" align="center">
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="username">username :</label>
+                    </td>
+                    <td>
+                        <input type="text" name="username" id="" value=<?php echo $username; ?> disabled="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="f_name">first name :</label>
+                    </td>
+                    <td>
+                        <input type="text" name="f_name" id="" value=<?php echo $fname; ?>>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="l_name">last name :</label>
+                    </td>
+                    <td>
+                        <input type="text" name="l_name" id="" value=<?php echo $lname; ?>>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">email :</label>
+                    </td>
+                    <td>
+                        <input type="email" name="email" id="" value=<?php echo $email; ?>>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="p_number">phone number :</label>
+                    </td>
+                    <td>
+                        <input type="number" name="p_number" id="" value=<?php echo $pnumber; ?>>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="dob">D.O.B :</label>
+                    </td>
+                    <td>
+                        <input type="date" name="dob" id="" value=<?php echo $dob; ?>>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="update">
+                    </td>
+                </tr>
+                <tr>
+                    <?php
+                    echo '<td><a href="forgot_password.php?fname=', $fname, '&lname=', $lname, '&dob=', $dob, '&email=', $email, '&pnumber=', $pnumber, '&username=', $username, '&password=', $password, '">Forgot Password</a></td>';
+                    ?>
+                </tr>
+            </tbody>
+        </table>
+    </form>
 </body>
 
 </html>
-
-
-?>

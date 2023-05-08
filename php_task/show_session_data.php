@@ -4,8 +4,19 @@ foreach ($_SESSION as $key => $value) {
     for ($i = 0; $i < count($_SESSION[$key]); $i++) {
         echo "<td> $value[$i] </td>";
     }
-    echo '<td><a href="delete_data_using_session.php?username=',$value[5],'">delete</a></td>';
-    echo '<td><a href="edit_data_using_session.php?username=',$value[5],'">edit</a></td>';
+    echo '<td><a href="delete_data_using_session.php?username=', $value[5], '">delete</a></td>';
+    echo '<td><a  href="edit_data_using_session.php?fname=', $value[0], '&lname=', $value[1], '&dob=', $value[2], '&email=', $value[3], '&pnumber=', $value[4], '&username=', $value[5], '&password=', $value[6], '">edit</a></td>';
     echo "</tr>";
 }
 ?>
+<!-- echo <td>
+<form action="edit_data_using_session.php" method="post" id="form">
+<input type="text" name="fname" value=',$value[0],' hidden>
+<input type="text" name="lname" value=',$value[1],' hidden>
+<input type="text" name="dob" value=',$value[2],' hidden>
+<input type="text" name="email" value=',$value[3],' hidden>
+<input type="text" name="pnumber" value=',$value[4],' hidden>
+<input type="text" name="username" value=',$value[5],' hidden>
+<input type="text" name="password" value=',$value[6],' hidden>  
+<button type="submit" style="border: none; background: transparent; color:blue;"><u>edit</u></button>
+</form></td>'; -->

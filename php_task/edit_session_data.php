@@ -13,9 +13,6 @@ if (isset($_REQUEST['update'])) {
         if ($key == $username) {
             $_SESSION[$username] = array($f_name, $l_name, $dob, $email, $p_number, $username, $password);
             header('location: display_data_using_session.php');
-        } else {
-            echo "user doesn't exit";
-            echo '<a href="display_data_using_session.php">Back to Sign-up page</a>';
         }
     }
 }

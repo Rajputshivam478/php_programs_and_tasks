@@ -18,7 +18,7 @@
                     <label for="f_name">first name :</label>
                 </td>
                 <td>
-                    <input type="text" name="f_name" id="">
+                    <input type="text" name="f_name" id="" required>
                 </td>
             </tr>
             <tr>
@@ -26,7 +26,7 @@
                     <label for="l_name">last name :</label>
                 </td>
                 <td>
-                    <input type="text" name="l_name" id="">
+                    <input type="text" name="l_name" id="" required>
                 </td>
             </tr>
             <tr>
@@ -34,7 +34,7 @@
                     <label for="email">email :</label>
                 </td>
                 <td>
-                    <input type="email" name="email" id="">
+                    <input type="email" name="email" id="" required>
                 </td>
             </tr>
             <tr>
@@ -42,7 +42,7 @@
                     <label for="p_number">phone number :</label>
                 </td>
                 <td>
-                    <input type="number" name="p_number" id="">
+                    <input type="number" name="p_number" id="" required>
                 </td>
             </tr>
             <tr>
@@ -50,7 +50,7 @@
                     <label for="dob">D.O.B :</label>
                 </td>
                 <td>
-                    <input type="date" name="dob" id="">
+                    <input type="date" name="dob" id="" required>
                 </td>
             </tr>
             <tr>
@@ -58,7 +58,7 @@
                     <label for="username">username :</label>
                 </td>
                 <td>
-                    <input type="text" name="username" id="">
+                    <input type="text" name="username" id="" required> 
                 </td>
             </tr>
             <tr>
@@ -66,7 +66,7 @@
                     <label for="password">password :</label>
                 </td>
                 <td>
-                    <input type="password" name="password" id="">
+                    <input type="password" name="password" id="" required>
                 </td>
             </tr>
             <tr>
@@ -74,7 +74,7 @@
                     <label for="c_password">confirm password :</label>
                 </td>
                 <td>
-                    <input type="password" name="c_password" id="">
+                    <input type="password" name="c_password" id="" required>
                 </td>
             </tr>
             <tr>
