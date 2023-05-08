@@ -1,4 +1,7 @@
-<?php require('sending_session_data.php'); ?>
+<?php
+$username = $_REQUEST['username'];
+include('edit_session_data.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,11 +9,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Session signup</title>
+    <title>Update Data</title>
 </head>
 
 <body>
-    <h1 align="center">Sign up Form </h1>
+    <h1 align="center">Update Form </h1>
     <table cellspacing=10px; align="center">
         <form action="" method="post">
             <tr>
@@ -58,7 +61,7 @@
                     <label for="username">username :</label>
                 </td>
                 <td>
-                    <input type="text" name="username" id="">
+                    <input type="text" name="username" id="" value=<?php echo $username ?> disabled>
                 </td>
             </tr>
             <tr>
@@ -71,34 +74,13 @@
             </tr>
             <tr>
                 <td>
-                    <label for="c_password">confirm password :</label>
-                </td>
-                <td>
-                    <input type="password" name="c_password" id="">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" name="submit">
+                    <input type="submit" name="update">
                 </td>
             </tr>
         </form>
-    </table>
-    <br><br><br><br>
-    <table border="1" cellpadding="5px" align="center">
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>D.O.B</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>delete</th>
-            <th>edit</th>
-        </tr>
-        <?php include('show_session_data.php')?>
-    </table>
 </body>
 
 </html>
+
+
+?>
