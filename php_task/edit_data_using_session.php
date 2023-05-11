@@ -7,6 +7,7 @@ if (isset($_REQUEST['username'])) {
     $fname = $_REQUEST['fname'];
     $lname = $_REQUEST['lname'];
     $dob = $_REQUEST['dob'];
+    $destination = $_REQUEST['destination'];
 }
 include 'edit_session_data.php';
 ?>
@@ -80,7 +81,7 @@ include 'edit_session_data.php';
                 </tr>
                 <tr>
                     <?php
-                    echo '<td><a href="forgot_password.php?fname=', $fname, '&lname=', $lname, '&dob=', $dob, '&email=', $email, '&pnumber=', $pnumber, '&username=', $username, '&password=', $password, '">Forgot Password</a></td>';
+                    echo '<td><a href="forgot_password.php?fname=', $fname, '&lname=', $lname, '&dob=', $dob, '&email=', $email, '&pnumber=', $pnumber, '&username=', $username, '&password=', $password,'&destination=',$destination,'">Forgot Password</a></td>';
                     ?>
                 </tr>
             </tbody>

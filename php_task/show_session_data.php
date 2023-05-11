@@ -1,11 +1,14 @@
 <?php
+$destination;
 foreach ($_SESSION as $key => $value) {
     echo "<tr>";
-    for ($i = 0; $i < count($_SESSION[$key]); $i++) {
+    for ($i = 0; $i < count($_SESSION[$key]) - 1 ; $i++) {
         echo "<td> $value[$i] </td>";
+        $destination = $value[7];
     }
+    echo '<td><img src="'.$destination.'" alt="" height="50px" width="50px"></td>';
     echo '<td><a href="delete_data_using_session.php?username=', $value[5], '">delete</a></td>';
-    echo '<td><a  href="edit_data_using_session.php?fname=', $value[0], '&lname=', $value[1], '&dob=', $value[2], '&email=', $value[3], '&pnumber=', $value[4], '&username=', $value[5], '&password=', $value[6], '">edit</a></td>';
+    echo '<td><a  href="edit_data_using_session.php?fname=', $value[0], '&lname=', $value[1], '&dob=', $value[2], '&email=', $value[3], '&pnumber=', $value[4], '&username=', $value[5], '&password=', $value[6],'&destination=',$destination,'">edit</a></td>';
     echo "</tr>";
 }
 ?>

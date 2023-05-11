@@ -7,6 +7,7 @@ $pnumber = $_REQUEST['pnumber'];
 $fname = $_REQUEST['fname'];
 $lname = $_REQUEST['lname'];
 $dob = $_REQUEST['dob'];
+$destination = $_REQUEST['destination'];
 
 if (isset($_POST['update'])) {
 
@@ -16,7 +17,7 @@ if (isset($_POST['update'])) {
     if ($new_password == $confirm_password) {
         foreach ($_SESSION as $key => $value) {
             if ($key == $username) {
-                $_SESSION[$username] = array($fname, $lname, $dob, $email, $pnumber, $username, $new_password);
+                $_SESSION[$username] = array($fname, $lname, $dob, $email, $pnumber, $username, $new_password,$destination);
                 header('location: display_data_using_session.php');
             }
         }
@@ -72,7 +73,6 @@ if (isset($_POST['update'])) {
     ?>
     </form>
     </table>
-    </form>
 </body>
 
 </html>

@@ -12,7 +12,7 @@
 <body>
     <h1 align="center">Sign up Form </h1>
     <table cellspacing=10px; align="center">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <tr>
                 <td>
                     <label for="f_name">first name :</label>
@@ -58,7 +58,7 @@
                     <label for="username">username :</label>
                 </td>
                 <td>
-                    <input type="text" name="username" id="" required> 
+                    <input type="text" name="username" id="" required>
                 </td>
             </tr>
             <tr>
@@ -79,6 +79,14 @@
             </tr>
             <tr>
                 <td>
+                    <label for="image">Upload image :</label>
+                </td>
+                <td>
+                    <input type="file" name="image" id="image">
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <input type="submit" name="submit">
                 </td>
             </tr>
@@ -94,10 +102,11 @@
             <th>Phone Number</th>
             <th>Username</th>
             <th>Password</th>
+            <th>Image</th>
             <th>delete</th>
             <th>edit</th>
         </tr>
-        <?php include('show_session_data.php')?>
+        <?php include('show_session_data.php') ?>
     </table>
 </body>
 
