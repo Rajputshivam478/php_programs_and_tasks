@@ -8,7 +8,8 @@ foreach ($_SESSION as $key => $value) {
     }
     echo '<td><img src="'.$destination.'" alt="" height="50px" width="50px"></td>';
     echo '<td><a href="delete_data_using_session.php?username=', $value[5], '">delete</a></td>';
-    echo '<td><a  href="edit_data_using_session.php?fname=', $value[0], '&lname=', $value[1], '&dob=', $value[2], '&email=', $value[3], '&pnumber=', $value[4], '&username=', $value[5], '&password=', $value[6],'&destination=',$destination,'">edit</a></td>';
+    echo '<td><a  href="edit_data_using_session.php?username=', $value[5],'">edit</a></td>';
+    echo '<td><a href="forgot_password.php?username=', $value[5],'">Forgot Password</a></td>';
     echo "</tr>";
 }
 ?>

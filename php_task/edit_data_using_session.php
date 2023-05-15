@@ -1,13 +1,18 @@
 <?php
+session_start();
 if (isset($_REQUEST['username'])) {
     $username = $_REQUEST['username'];
-    $email = $_REQUEST['email'];
-    $password = $_REQUEST['password'];
-    $pnumber = $_REQUEST['pnumber'];
-    $fname = $_REQUEST['fname'];
-    $lname = $_REQUEST['lname'];
-    $dob = $_REQUEST['dob'];
-    $destination = $_REQUEST['destination'];
+    foreach ($_SESSION as $key => $value) {
+        if ($username == $key) {
+            $fname = $value[0];
+            $lname = $value[1];
+            $dob = $value[2];
+            $email = $value[3];
+            $pnumber = $value[4];
+            $password = $value[6];
+            $destination = $value[7];
+        }
+    }
 }
 include 'edit_session_data.php';
 ?>
@@ -23,7 +28,7 @@ include 'edit_session_data.php';
 
 <body>
     <h1 align="center">Update Form </h1>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <table cellspacing="10px;" align="center">
             <tbody>
                 <tr>
@@ -72,17 +77,22 @@ include 'edit_session_data.php';
                     </td>
                     <td>
                         <input type="date" name="dob" id="" value=<?php echo $dob; ?>>
+                        <input type="password" name="password" id="" value=<?php echo $password; ?> hidden>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="image">Uploaded Image :</label>
+                    </td>
+                    <td style="display:flex; align-items:center;">
+                        <input type="file" name="image" id="image">
+                        <img src="<?php echo $destination; ?>" alt="" height="80px" width="80px">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <input type="submit" name="update">
                     </td>
-                </tr>
-                <tr>
-                    <?php
-                    echo '<td><a href="forgot_password.php?fname=', $fname, '&lname=', $lname, '&dob=', $dob, '&email=', $email, '&pnumber=', $pnumber, '&username=', $username, '&password=', $password,'&destination=',$destination,'">Forgot Password</a></td>';
-                    ?>
                 </tr>
             </tbody>
         </table>

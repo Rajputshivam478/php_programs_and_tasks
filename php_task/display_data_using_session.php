@@ -105,6 +105,7 @@
             <th>Image</th>
             <th>delete</th>
             <th>edit</th>
+            <th>forgot password</th>
         </tr>
         <?php include('show_session_data.php') ?>
     </table>

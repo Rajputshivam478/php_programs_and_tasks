@@ -1,13 +1,17 @@
 <?php
 session_start();
 $username = $_REQUEST['username'];
-$email = $_REQUEST['email'];
-$password = $_REQUEST['password'];
-$pnumber = $_REQUEST['pnumber'];
-$fname = $_REQUEST['fname'];
-$lname = $_REQUEST['lname'];
-$dob = $_REQUEST['dob'];
-$destination = $_REQUEST['destination'];
+foreach ($_SESSION as $key => $value) {
+    if ($username == $key) {
+        $fname = $value[0];
+        $lname = $value[1];
+        $dob = $value[2];
+        $email = $value[3];
+        $pnumber = $value[4];
+        $password = $value[6];
+        $destination = $value[7];
+    }
+}
 
 if (isset($_POST['update'])) {
 
@@ -17,7 +21,7 @@ if (isset($_POST['update'])) {
     if ($new_password == $confirm_password) {
         foreach ($_SESSION as $key => $value) {
             if ($key == $username) {
-                $_SESSION[$username] = array($fname, $lname, $dob, $email, $pnumber, $username, $new_password,$destination);
+                $_SESSION[$username] = array($fname, $lname, $dob, $email, $pnumber, $username, $new_password, $destination);
                 header('location: display_data_using_session.php');
             }
         }
