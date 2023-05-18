@@ -8,7 +8,6 @@
 3. show Databases;
 
 
-
 ---------- CREATE TABLE COMMANDS -------------
 
 4. create table Table_name (column_name_1 datatype(range),column_name_2 datatype(range),....,column_name_n datatype(range))
