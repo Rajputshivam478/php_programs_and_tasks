@@ -1,34 +1,34 @@
 <?php
 $user_id = 0;
-
+if (isset($_REQUEST['check'])) {
     $user_id = $_REQUEST['user_id'];
     $email = $_REQUEST['email'];
     $password = $_REQUEST['password'];
 
-    if($user_id == 101){
-    include 'config.php';
-    if (isset($conn)) {
-        $result = mysqli_query($conn, "SELECT * FROM `user` WHERE `user_id` = '$user_id'");
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-            if ($row['email'] == $email) {
-                if ($password == $row['password']) {
-                    $msg = "data matched";
-                    $check = 1;
+    if ($user_id == 101) {
+        include 'config.php';
+        if (isset($conn)) {
+            $result = mysqli_query($conn, "SELECT * FROM `user` WHERE `user_id` = '$user_id'");
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                if ($row['email'] == $email) {
+                    if ($password == $row['password']) {
+                        $msg = "data matched";
+                        $check = 1;
+                    } else {
+                        $msg = 'Invalid Password..';
+                    }
                 } else {
-                    $msg = 'Invalid Password..';
+                    $msg = "Invalid Email..";
                 }
             } else {
-                $msg = "Invalid Email..";
+                $msg = "User ID Doesn't exists..";
             }
         } else {
-            $msg = "User ID Doesn't exists..";
+            $msg = "sever is not working something wrong.";
         }
-    } else {
-        $msg = "sever is not working something wrong.";
     }
 }
-
 
 if (isset($_REQUEST['change'])) {
 
