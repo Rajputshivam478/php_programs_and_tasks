@@ -44,7 +44,7 @@ include './service/forgot_password_data.php';
             }
         }
         ?>
-        <div class="flex flex-col items-center justify-center gap-16 h-full bg-blue-400 p-10 rounded-xl">
+        <div class="flex flex-col items-center justify-center gap-16 h-full p-10 rounded-xl">
             <h1 class="py-6 text-center text-6xl font-extrabold">Forgot Password</h1>
             <form action="" method="post" class="block h-full">
                 <table class="h-full">
