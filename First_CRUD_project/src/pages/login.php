@@ -39,9 +39,9 @@ include './service/login_data.php';
         <div class="bg-white w-3/12 h-1/2 rounded-lg">
             <h1 class="py-6 text-center text-6xl font-extrabold text-gray-800 border-b border-gray-400">Login</h1>
             <form action="" method="post" class="h-full w-full flex flex-col gap-4 py-4 px-8">
-                <input type="email" name="email" id="email" placeholder="Email"
+                <input required type="email" name="email" id="email" placeholder="Email"
                     class="px-4 w-full border-2 border-gray-200 p-1 rounded-lg outline-blue-400">
-                <input type="password" name="password" id="password" placeholder="Password"
+                <input required type="password" name="password" id="password" placeholder="Password"
                     class="px-4 w-full border-2 border-gray-200 p-1 rounded-lg outline-blue-400">
                 <a href="forgot_password.php" class="text-gray-500 hover:text-blue-400">Forgot Password?</a>
                 <input type="submit" name="login" value="login"

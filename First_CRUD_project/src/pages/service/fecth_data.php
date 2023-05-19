@@ -28,7 +28,7 @@ if (isset($conn)) {
             $name = $row['name'];
             $path = $row['path'];
         } else {
-            $result = mysqli_query($conn, "SELECT user.user_id,`fname`,`lname`,`email`,`password`,role.role_id,`role`,`created_date`,`modify_date` FROM `user` INNER JOIN `profile` ON profile.user_id = user.user_id INNER JOIN `role` ON user.role_id = role.role_id WHERE user.user_id = '$user_id'");
+            $result = mysqli_query($conn, "SELECT user.user_id,`fname`,`lname`,`email`,`password`,role.role_id,`role`,`created_date`,`modify_date`,`deleted_date` FROM `user` INNER JOIN `profile` ON profile.user_id = user.user_id INNER JOIN `role` ON user.role_id = role.role_id WHERE user.user_id = '$user_id'");
             if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
                 $email = $row['email'];
@@ -40,6 +40,7 @@ if (isset($conn)) {
                 $fname = $row['fname'];
                 $lname = $row['lname'];
                 $role = $row['role'];
+                $deleted_date=$row['deleted_date'];
             }
         }
 

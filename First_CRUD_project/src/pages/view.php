@@ -69,26 +69,45 @@ if (isset($_REQUEST['view'])) {
                         <?php echo $modify_date; ?>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <form action="edit.php" method="post" class="hover:text-blue-400">
-                            <input type="number" name="edit_user_id" value="<?php echo $user_id; ?>" hidden>
-                            <input type="submit" name="edit" value="edit"
-                                class="px-8 py-3 rounded-md bg-white border border-slate-600 text-gray-800 hover:text-white hover:bg-blue-400">
-                        </form>
-                    </td>
-                    <td></td>
-                    <td>
-                        <form action="./service/delete.php" method="post" class="hover:text-blue-400"><input type="number"
-                                name="edit_user_id" value="<?php echo $user_id; ?>" hidden><input type="submit"
-                                name="delete" value="delete"
-                                class="px-8 py-3 rounded-md bg-white border border-slate-600 text-gray-800 hover:text-white hover:bg-blue-400">
-                        </form>
-                    </td>
-                    <!-- <td><a href="edit.php"
+                <?php
+                if (isset($row['deleted_date'])) {
+                    ?>
+                    <tr>
+                        <td>Deleted Date </td>
+                        <td>:</td>
+                        <td>
+                            <?php echo $deleted_date; ?>
+                        </td>
+                    </tr>
+                    <?php
+                }
+                ?>
+                <?php
+                if (!isset($row['deleted_date'])) {
+                    ?>
+                    <tr>
+                        <td>
+                            <form action="edit.php" method="post" class="hover:text-blue-400">
+                                <input type="number" name="edit_user_id" value="<?php echo $user_id; ?>" hidden>
+                                <input type="submit" name="edit" value="edit"
+                                    class="px-8 py-3 rounded-md bg-white border border-slate-600 text-gray-800 hover:text-white hover:bg-blue-400">
+                            </form>
+                        </td>
+                        <td></td>
+                        <td>
+                            <form action="./service/delete.php" method="post" class="hover:text-blue-400"><input type="number"
+                                    name="edit_user_id" value="<?php echo $user_id; ?>" hidden><input type="submit"
+                                    name="delete" value="delete"
+                                    class="px-8 py-3 rounded-md bg-white border border-slate-600 text-gray-800 hover:text-white hover:bg-blue-400">
+                            </form>
+                        </td>
+                        <!-- <td><a href="edit.php"
                         class="px-8 py-3 rounded-md bg-white border border-slate-600 text-gray-800 hover:text-white hover:bg-blue-400"></a>
                 </td> -->
-                </tr>
+                    </tr>
+                    <?php
+                }
+                ?>
             </table>
         </main>
     </body>

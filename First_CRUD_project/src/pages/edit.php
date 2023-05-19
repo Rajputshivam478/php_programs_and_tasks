@@ -49,7 +49,7 @@ if (isset($_REQUEST['edit'])) {
                                 <label for="f_name">User id :</label>
                             </td>
                             <td>
-                                <input type="text" name="user_id" id="" value="<?php echo $user_id; ?>"
+                                <input required type="text" name="user_id" id="" value="<?php echo $user_id; ?>"
                                     class="px-4 w-full border-2 border-gray-200 p-1 rounded-lg outline-blue-400">
                             </td>
                         </tr>
@@ -58,7 +58,7 @@ if (isset($_REQUEST['edit'])) {
                                 <label for="f_name">First name :</label>
                             </td>
                             <td>
-                                <input type="text" name="fname" id="" value="<?php echo $fname; ?>"
+                                <input required type="text" name="fname" id="" value="<?php echo $fname; ?>"
                                     class="px-4 w-full border-2 border-gray-200 p-1 rounded-lg outline-blue-400">
                             </td>
                         </tr>
@@ -67,7 +67,7 @@ if (isset($_REQUEST['edit'])) {
                                 <label for="l_name">Last name :</label>
                             </td>
                             <td>
-                                <input type="text" name="lname" id="" value="<?php echo $lname ?>"
+                                <input required type="text" name="lname" id="" value="<?php echo $lname ?>"
                                     class="px-4 w-full border-2 border-gray-200 p-1 rounded-lg outline-blue-400">
                             </td>
                         </tr>
@@ -76,7 +76,7 @@ if (isset($_REQUEST['edit'])) {
                                 <label for="email">Email :</label>
                             </td>
                             <td>
-                                <input type="email" name="email" id="" value="<?php echo $email; ?>"
+                                <input required type="email" name="email" id="" value="<?php echo $email; ?>"
                                     class="px-4 w-full border-2 border-gray-200 p-1 rounded-lg outline-blue-400">
                             </td>
                         </tr>

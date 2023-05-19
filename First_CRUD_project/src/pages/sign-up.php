@@ -57,37 +57,37 @@ include './service/signup_data.php';
                     </tr>
                     <tr class="text-lg font-semibold text-gray-400">
                         <td><label for="fname">First Name :</label></td>
-                        <td><input type="text" name="fname" id="fname"
+                        <td><input required type="text" name="fname" id="fname"
                                 class=" p-1 rounded-lg outline-blue-400 "></td>
                     </tr>
                     <tr class="text-lg font-semibold text-gray-400">
                         <td><label for="lname">Last Name :</label></td>
-                        <td><input type="text" name="lname" id="lname"
+                        <td><input required type="text" name="lname" id="lname"
                                 class=" p-1 rounded-lg outline-blue-400"></td>
                     </tr>
                     <tr class="text-lg font-semibold text-gray-400">
                         <td><label for="email">Email :</label></td>
-                        <td><input type="email" name="email" id="email"
+                        <td><input required type="email" name="email" id="email"
                                 class=" p-1 rounded-lg outline-blue-400"></td>
                     </tr>
                     <tr class="text-lg font-semibold text-gray-400">
                         <td><label for="password">Password :</label></td>
-                        <td><input type="password" name="password" id="password"
+                        <td><input required type="password" name="password" id="password"
                                 class=" p-1 rounded-lg outline-blue-400"></td>
                     </tr>
                     <tr class="text-lg font-semibold text-gray-400">
                         <td><label for="c_password">Confirm Password :</label></td>
-                        <td><input type="password" name="c_password" id="c_password"
+                        <td><input required type="password" name="c_password" id="c_password"
                                 class=" p-1 rounded-lg outline-blue-400"></td>
                     </tr>
                     <tr class="hidden">
                         <td><label for="created_date">created_date :</label></td>
-                        <td><input type="datetime" name="created_date" id="created_date" value="<?php $actualtime = time();
+                        <td><input required type="datetime" name="created_date" id="created_date" value="<?php $actualtime = time();
                         echo (date("y/m/d h:i:s", $actualtime)); ?>"></td>
                     </tr>
                     <tr class="hidden">
                         <td><label for="created_date">modified_date :</label></td>
-                        <td><input type="datetime" name="modify_date" id="modified_date" value="<?php $actualtime = time();
+                        <td><input required type="datetime" name="modify_date" id="modified_date" value="<?php $actualtime = time();
                         echo (date("y/m/d h:i:s", $actualtime)); ?>"></td>
                     </tr>
                     <tr>

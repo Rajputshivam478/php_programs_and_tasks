@@ -50,21 +50,21 @@ if (isset($_REQUEST['user_id'])) {
                     <table class="h-full">
                         <tr class="text-lg font-semibold">
                             <td><label for="lname">User ID :</label></td>
-                            <td><input type="text" name="user_id" id="lname"
+                            <td><input required type="text" name="user_id" id="lname"
                                     class=" p-1 rounded-lg outline-blue-400 bg-slate-100"></td>
                         </tr>
                         <tr class="text-lg font-semibold">
                             <td><label for="email">Email :</label></td>
-                            <td><input type="email" name="email" id="email"
+                            <td><input required type="email" name="email" id="email"
                                     class=" p-1 rounded-lg outline-blue-400 bg-slate-100"></td>
                         </tr>
                         <tr class="text-lg font-semibold">
                             <td><label for="password">Password :</label></td>
-                            <td><input type="password" name="password" id="password"
+                            <td><input required type="password" name="password" id="password"
                                     class=" p-1 rounded-lg outline-blue-400 bg-slate-100"></td>
                         </tr>
                         <tr>
-                            <td><input type="submit" value="Check" name="check"
+                            <td><input required type="submit" value="Check" name="check"
                                     class="px-8 py-3 rounded-md block bg-white text-lg font-semibold text-gray-500 hover:text-white hover:bg-blue-400">
                             </td>
                         </tr>
@@ -73,12 +73,12 @@ if (isset($_REQUEST['user_id'])) {
                             ?>
                             <tr class="text-lg font-semibold">
                                 <td><label for="password">New Password :</label></td>
-                                <td><input type="password" name="n_password" id="password"
+                                <td><input required type="password" name="n_password" id="password"
                                         class=" p-1 rounded-lg outline-blue-400 bg-slate-100"></td>
                             </tr>
                             <tr class="text-lg font-semibold">
                                 <td><label for="c_password">Confirm Password :</label></td>
-                                <td><input type="password" name="c_password" id="c_password"
+                                <td><input required type="password" name="c_password" id="c_password"
                                         class=" p-1 rounded-lg outline-blue-400 bg-slate-100"></td>
                             </tr>
                             <tr>
