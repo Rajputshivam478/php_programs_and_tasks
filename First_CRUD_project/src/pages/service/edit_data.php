@@ -1,9 +1,9 @@
 <?php
 include 'config.php';
 $user_id = "";
-// if (isset($_REQUEST['edit'])) {
+if (isset($_REQUEST['edit'])) {
 $user_id = $_REQUEST['edit_user_id'];
-// }
+}
 
 if (isset($conn)) {
     $result = mysqli_query($conn, "SELECT user.user_id,`fname`,`lname`,`email`,`password`,role.role_id,`role`,`created_date`,`modify_date` FROM `user` INNER JOIN `profile` ON profile.user_id = user.user_id INNER JOIN `role` ON user.role_id = role.role_id WHERE user.user_id = '$user_id'");

@@ -1,4 +1,5 @@
 <?php session_start();
+if(isset($_SESSION['email'])){
 if ($_SESSION['role_id'] == 1) {
     include './service/variables.php';
     include './service/fecth_data.php';
@@ -73,6 +74,9 @@ if ($_SESSION['role_id'] == 1) {
     <?php
 } else {
     header('location: user_profile.php');
+}
+}else{
+    header('location: login.php');
 }
 
 ?>
