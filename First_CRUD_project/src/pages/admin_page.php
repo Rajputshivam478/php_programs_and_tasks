@@ -18,7 +18,7 @@ if (isset($_SESSION['email'])) {
         <body class="h-screen">
             <?php include 'header.php'; ?>
             <main class="flex justify-center pt-32">
-                <table class="border border-slate-400" cellpadding="20px" align="center">
+                <table class="border border-slate-400 mx-10" cellpadding="20px" align="center">
                     <thead>
                         <tr>
                             <th class="border-2 border-slate-400 bg-slate-200">User ID</th>
