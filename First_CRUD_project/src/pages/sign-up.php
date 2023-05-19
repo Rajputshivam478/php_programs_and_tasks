@@ -82,13 +82,11 @@ include './service/signup_data.php';
                     </tr>
                     <tr class="hidden">
                         <td><label for="created_date">created_date :</label></td>
-                        <td><input required type="datetime" name="created_date" id="created_date" value="<?php $actualtime = time();
-                        echo (date("y/m/d h:i:s", $actualtime)); ?>"></td>
+                        <td><input required type="datetime" name="created_date" id="created_date" value="<?php echo date("y/m/d h:i:s"); ?>"></td>
                     </tr>
                     <tr class="hidden">
                         <td><label for="created_date">modified_date :</label></td>
-                        <td><input required type="datetime" name="modify_date" id="modified_date" value="<?php $actualtime = time();
-                        echo (date("y/m/d h:i:s", $actualtime)); ?>"></td>
+                        <td><input required type="datetime" name="modify_date" id="modified_date" value="<?php echo date("y/m/d h:i:s"); ?>"></td>
                     </tr>
                     <tr>
                         <td><input type="submit" value="SignUp" name="singup"

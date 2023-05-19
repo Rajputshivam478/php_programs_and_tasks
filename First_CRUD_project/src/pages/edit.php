@@ -93,8 +93,7 @@ if (isset($_REQUEST['edit'])) {
                             <td>
                                 <label for="dob">Modify Date :</label>
                             </td>
-                            <td><input type="datetime" name="modify_date" id="modified_date" value="<?php $actualtime = time();
-                            echo (date("y/m/d h:i:s", $actualtime)); ?>">
+                            <td><input type="datetime" name="modify_date" id="modified_date" value="<?php echo date("y/m/d h:i:s"); ?>">
                             </td>
                         </tr>
                         <tr>
