@@ -48,7 +48,7 @@ include './service/edit_data.php';
                             <label for="f_name">User id :</label>
                         </td>
                         <td>
-                            <input type="text" name="user_id" id="" value="<?php echo $user_id;?>"
+                            <input type="text" name="user_id" id="" value="<?php echo $user_id; ?>"
                                 class="px-4 w-full border-2 border-gray-200 p-1 rounded-lg outline-blue-400">
                         </td>
                     </tr>

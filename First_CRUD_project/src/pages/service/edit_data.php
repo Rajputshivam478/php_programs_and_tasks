@@ -1,9 +1,9 @@
 <?php
 include 'config.php';
 $user_id = "";
-if (isset($_REQUEST['edit'])) {
-    $user_id = $_REQUEST['edit_user_id'];
-}
+// if (isset($_REQUEST['edit'])) {
+$user_id = $_REQUEST['edit_user_id'];
+// }
 
 if (isset($conn)) {
     $result = mysqli_query($conn, "SELECT user.user_id,`fname`,`lname`,`email`,`password`,role.role_id,`role`,`created_date`,`modify_date` FROM `user` INNER JOIN `profile` ON profile.user_id = user.user_id INNER JOIN `role` ON user.role_id = role.role_id WHERE user.user_id = '$user_id'");
@@ -30,9 +30,11 @@ if (isset($_REQUEST['update'])) {
     $modify_date = $_REQUEST['modify_date'];
 
     if (isset($_FILES['image'])) {
+        // $date = date("y/m/d h:i:s", $actualtime);
         $filename = $_FILES['image']['name'];
         $tfilename = $_FILES['image']['tmp_name'];
-        $destination = "./images/" . $filename;
+        // $filename = $filename.$date;
+        $destination = "images/" . $filename;
         $size = $_FILES['image']['size'];
         $type = $_FILES['image']['type'];
 
@@ -40,6 +42,7 @@ if (isset($_REQUEST['update'])) {
             $result = mysqli_query($conn, "SELECT * FROM `file` WHERE `user_id` = '$user_id'");
             if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
+                echo "update";
                 $result = mysqli_query($conn, "UPDATE `file` SET `size`='$size',`extension`='$type',`unique_name`='$tfilename',`name`='$filename',`path`='$destination' WHERE `user_id`='$user_id'");
                 $msg = "file updated";
             } else {
@@ -52,9 +55,9 @@ if (isset($_REQUEST['update'])) {
     }
 
     $result = mysqli_query($conn, "UPDATE `user` SET `email`='$email',`modify_date`='$modify_date' WHERE `user_id`='$user_id'");
-    
+
     $result = mysqli_query($conn, "UPDATE `profile` SET `fname`='$fname',`lname`='$lname' WHERE `user_id`='$user_id'");
-    
+
     $role = $_SESSION['role'];
     if ($role == "admin") {
         header('location: admin_page.php');

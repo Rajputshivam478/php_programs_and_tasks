@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['email'])) {
+if ($_SESSION['role_id'] != 1) {
     include './service/variables.php';
     include './service/fecth_data.php';
     ?>
@@ -65,7 +65,8 @@ if (isset($_SESSION['email'])) {
                     <td class="">
                         <form action="edit.php" method="post" class="hover:text-blue-400">
                             <input type="number" name="edit_user_id" value="<?php echo $user_id; ?>" hidden>
-                            <input type="submit" name="edit" value="edit" class="px-8 py-3 rounded-md bg-white border border-slate-600 text-gray-800 hover:text-white hover:bg-blue-400">
+                            <input type="submit" name="edit" value="edit"
+                                class="px-8 py-3 rounded-md bg-white border border-slate-600 text-gray-800 hover:text-white hover:bg-blue-400">
                         </form>
                     </td>
                     <!-- <td><a href="edit.php"
@@ -79,6 +80,6 @@ if (isset($_SESSION['email'])) {
     </html>
     <?php
 } else {
-    header('location: login.php');
+    header('location: admin_page.php');
 }
 ?>
