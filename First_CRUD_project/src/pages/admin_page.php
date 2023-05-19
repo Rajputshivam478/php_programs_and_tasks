@@ -55,8 +55,12 @@ if (isset($_SESSION['email'])) {
                                         echo '<td class="border-2 border-slate-400">' . $row['created_date'] . '</td>';
                                         echo '<td class="border-2 border-slate-400">' . $row['modify_date'] . '</td>';
                                         echo '<td class="border-2 border-slate-400">' . $row['deleted_date'] . '</td>';
-                                        $user_id = $row['user_id'];
                                         echo '<td class="border-2 border-slate-400"><img src="' . $row['path'] . '" alt="Image not uploded.." height="70px" width="70px"></td>';
+                                        $user_id = $row['user_id'];
+                                        if(isset($row['deleted_date'])){
+                                            echo '<td class="border-2 border-slate-400"></td>';
+                                            echo '<td class="border-2 border-slate-400"></td>';
+                                        }
                                         if (!isset($row['deleted_date'])) {
                                             echo '<td class="border-2 border-slate-400"><form action="edit.php" method="post" class="hover:text-blue-400"><input type="number" name="edit_user_id" value="' . $user_id . '" hidden><button type="submit" name="edit" value="edit">Edit</button></form></td>';
                                             echo '<td class="border-2 border-slate-400"><form action="./service/delete.php" method="post" class="hover:text-red-400"><input type="number" name="edit_user_id" value="' . $user_id . '" hidden><button type="submit" name="delete" value="delete">delete</button></form></td>';
