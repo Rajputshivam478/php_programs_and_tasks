@@ -56,7 +56,7 @@ if ($_SESSION['role_id'] == 1) {
                                     $user_id = $row['user_id'];
                                     echo '<td class="border-2 border-slate-400"><img src="' . $row['path'] . '" alt="Image not uploded.." height="70px" width="70px"></td>';
                                     echo '<td class="border-2 border-slate-400"><form action="edit.php" method="post" class="hover:text-blue-400"><input type="number" name="edit_user_id" value="' . $user_id . '" hidden><button type="submit" name="edit" value="edit">Edit</button></form></td>';
-                                    echo '<td class="border-2 border-slate-400"><form action="./service/delete.php" method="post" class="hover:text-blue-400"><input type="number" name="edit_user_id" value="' . $user_id . '" hidden><button type="submit" name="delete" value="delete">delete</button></form></td>';
+                                    echo '<td class="border-2 border-slate-400"><form action="./service/delete.php" method="post" class="hover:text-red-400"><input type="number" name="edit_user_id" value="' . $user_id . '" hidden><button type="submit" name="delete" value="delete">delete</button></form></td>';
                                     echo '<td class="border-2 border-slate-400"><form action="view.php" method="post" class="hover:text-blue-400"><input type="number" name="edit_user_id" value="' . $user_id . '" hidden><button type="submit" name="view" value="view">view</button></form></td>';
                                     echo '</tr>';
                                 }

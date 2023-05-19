@@ -21,6 +21,13 @@ if (isset($_REQUEST['view'])) {
         <main class="flex justify-center pt-20">
             <table cellpadding="20px" class="bg-slate-200 rounded-xl">
                 <tr>
+                    <td>Image </td>
+                    <td>:</td>
+                    <td>
+                        <img src="<?php echo $path; ?>" alt="" height="100px" width="100px">
+                    </td>
+                </tr>
+                <tr>
                     <td>User ID </td>
                     <td>:</td>
                     <td>
