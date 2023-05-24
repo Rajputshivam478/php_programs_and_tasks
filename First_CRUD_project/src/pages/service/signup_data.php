@@ -21,6 +21,7 @@ if (isset($_POST['singup'])) {
                 // $res = mysqli_query($conn, "INSERT INTO `profile`(`user_id`, `fname`, `lname`) VALUES ('$user_id','$fname','$lname')");
             } else {
                 $result = mysqli_query($conn, "INSERT INTO `user`(`email`, `password`, `role_id`, `created_date`, `modify_date`) VALUES ('$email','$password','$role_id','$created_date','$modify_date')");
+                $result = mysqli_query($conn, "SELECT * FROM `user` WHERE `email` = '$email'");
                 if (mysqli_num_rows($result) > 0) {
                     $row = mysqli_fetch_assoc($result);
                     $user_id = $row['user_id'];

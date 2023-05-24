@@ -24,7 +24,14 @@ if (isset($_REQUEST['view'])) {
                     <td>Image </td>
                     <td>:</td>
                     <td>
-                        <img src="<?php echo $path; ?>" alt="" height="100px" width="100px">
+                        <?php
+                        if (strlen($path) != 0) {
+                            $img_path = $path;
+                        } else {
+                            $img_path = "http://www.psdgraphics.com/file/user-icon.jpg";
+                        }
+                        ?>
+                        <img src="<?php echo $img_path; ?>" alt="" height="100px" width="100px">
                     </td>
                 </tr>
                 <tr>

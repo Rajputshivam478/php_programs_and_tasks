@@ -3,6 +3,7 @@ if (isset($_SESSION['email'])) {
     if ($_SESSION['role_id'] == 1) {
         include './service/variables.php';
         include './service/fecth_data.php';
+        $img_path = "";
         ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -15,7 +16,7 @@ if (isset($_SESSION['email'])) {
             <link rel="stylesheet" href="../dist/output.css">
         </head>
 
-        <body class="h-screen">
+        <body class="">
             <?php include 'header.php'; ?>
             <main class="flex justify-center pt-32">
                 <table class="border border-slate-400 mx-10" cellpadding="20px" align="center">
@@ -39,7 +40,6 @@ if (isset($_SESSION['email'])) {
                     <tbody>
                         <?php
                         include './service/config.php';
-
                         if (isset($conn)) {
                             $result = mysqli_query($conn, "SELECT user.user_id,`fname`,`lname`,`email`,`password`,role.role_id,`role`,`created_date`,`modify_date`,`deleted_date`,`size`,`extension`,`unique_name`,`name`,`path` FROM `user` INNER JOIN `profile` ON profile.user_id = user.user_id INNER JOIN `role` ON user.role_id = role.role_id LEFT JOIN `file` ON user.user_id = file.user_id");
                             if (mysqli_num_rows($result) > 0) {
@@ -55,9 +55,14 @@ if (isset($_SESSION['email'])) {
                                         echo '<td class="border-2 border-slate-400">' . $row['created_date'] . '</td>';
                                         echo '<td class="border-2 border-slate-400">' . $row['modify_date'] . '</td>';
                                         echo '<td class="border-2 border-slate-400">' . $row['deleted_date'] . '</td>';
-                                        echo '<td class="border-2 border-slate-400"><img src="' . $row['path'] . '" alt="Image not uploded.." height="70px" width="70px"></td>';
+                                        if (isset($row['path'])) {
+                                            $img_path = $row['path'];
+                                        } else {
+                                            $img_path = "http://www.psdgraphics.com/file/user-icon.jpg";
+                                        }
+                                        echo '<td class="border-2 border-slate-400"><img src="' . $img_path . '" alt="Image not uploded.." height="100px" width="100px"></td>';
                                         $user_id = $row['user_id'];
-                                        if(isset($row['deleted_date'])){
+                                        if (isset($row['deleted_date'])) {
                                             echo '<td class="border-2 border-slate-400"></td>';
                                             echo '<td class="border-2 border-slate-400"></td>';
                                         }
