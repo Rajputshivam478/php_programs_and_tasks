@@ -1,16 +1,26 @@
 <?php
 session_start();
 // $destination = "";
-// $msg = "";
 include './service/variables.php';
 include './service/edit_data.php';
+include './service/config.php';
+
 if (isset($_REQUEST['edit'])) {
     $user_id = $_REQUEST['edit_user_id'];
+    $_SESSION['update'] = $user_id;
     if ($_SESSION['user_id'] == $user_id || $_SESSION['role'] == 'admin') {
         include './service/fecth_data.php';
+    } else {
+        $msg = "Access Denied..";
     }
 }
-if (!isset($deleted_date)) {
+$id = $_SESSION['update'];
+$res = mysqli_query($conn, "SELECT `deleted_date` FROM `user` WHERE `user_id`='$id'");
+if (mysqli_num_rows($res) > 0) {
+    $data = mysqli_fetch_assoc($res);
+    $deleted = $data['deleted_date'];
+}
+if (!isset($deleted)) {
     if (isset($_REQUEST['edit'])) {
         ?>
         <!DOCTYPE html>
@@ -138,7 +148,7 @@ if (!isset($deleted_date)) {
     } else {
         echo '<h1 class="p-10">PAGE NOT FOUND</h1>';
     }
-}else{
-    header('location: admin_page.php');
+} else {
+    echo "user data is deleted";
 }
 ?>
