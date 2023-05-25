@@ -1,6 +1,8 @@
 <?php
 if (isset($_REQUEST['view'])) {
     $user_id = $_REQUEST['edit_user_id'];
+} elseif (isset($_REQUEST['edit'])) {
+    $user_id = $_REQUEST['edit_user_id'];
 } else {
     $user_id = $_SESSION['user_id'];
 }
@@ -40,24 +42,9 @@ if (isset($conn)) {
                 $fname = $row['fname'];
                 $lname = $row['lname'];
                 $role = $row['role'];
-                $deleted_date=$row['deleted_date'];
+                $deleted_date = $row['deleted_date'];
             }
         }
-
-        // $_SESSION['email'] = $row['email'];
-        // $_SESSION['db_password'] = $row['password'];
-        // $_SESSION['role_id'] = $row['role_id'];
-        // $_SESSION['user_id'] = $row['user_id'];
-        // $_SESSION['created_date'] = $row['created_date'];
-        // $_SESSION['modify_date'] = $row['modify_date'];
-        // $_SESSION['fname'] = $row['fname'];
-        // $_SESSION['lname'] = $row['lname'];
-        // $_SESSION['role'] = $row['role'];
-        // $_SESSION['size'] = $row['size'];
-        // $_SESSION['extension'] = $row['extension'];
-        // $_SESSION['unique_name'] = $row['unique_name'];
-        // $_SESSION['name'] = $row['name'];
-        // $_SESSION['path'] = $row['path'];
     }
 }
 

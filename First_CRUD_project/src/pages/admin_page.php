@@ -18,7 +18,7 @@ if (isset($_SESSION['email'])) {
 
         <body class="">
             <?php include 'header.php'; ?>
-            <main class="flex justify-center pt-32">
+            <main class="flex justify-center pt-32 pb-10">
                 <table class="border border-slate-400 mx-10" cellpadding="20px" align="center">
                     <thead>
                         <tr>
@@ -45,6 +45,7 @@ if (isset($_SESSION['email'])) {
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     if ($row['user_id'] != 101) {
+                                        $_SESSION['check_id'] = $user_id ;
                                         echo '<tr>';
                                         echo '<td class="border-2 border-slate-400">' . $row['user_id'] . '</td>';
                                         echo '<td class="border-2 border-slate-400">' . $row['fname'] . '</td>';

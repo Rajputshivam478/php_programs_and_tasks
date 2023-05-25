@@ -28,13 +28,13 @@ if (isset($_REQUEST['login'])) {
                         header('location: user_profile.php');
                     }
                 } else {
-                    $msg = 'Invalid Password..';
+                    $msg = 'Invalid Credentials..';
                 }
             } else {
                 $msg = 'User data deleted..';
             }
         } else {
-            $msg = 'Invalid Email..';
+            $msg = 'Invalid Credentials..';
         }
     } else {
         $msg = "sever is not working something wrong.";

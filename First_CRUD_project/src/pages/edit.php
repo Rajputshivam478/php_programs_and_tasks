@@ -5,6 +5,12 @@ session_start();
 include './service/variables.php';
 include './service/edit_data.php';
 if (isset($_REQUEST['edit'])) {
+    $user_id = $_REQUEST['edit_user_id'];
+    if ($_SESSION['check_id'] == $user_id) {
+        include './service/fecth_data.php';
+    }
+}
+if (isset($_REQUEST['edit'])) {
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -93,7 +99,8 @@ if (isset($_REQUEST['edit'])) {
                             <td>
                                 <label for="dob">Modify Date :</label>
                             </td>
-                            <td><input type="datetime" name="modify_date" id="modified_date" value="<?php echo date("y/m/d h:i:s"); ?>">
+                            <td><input type="datetime" name="modify_date" id="modified_date"
+                                    value="<?php echo date("y/m/d h:i:s"); ?>">
                             </td>
                         </tr>
                         <tr>

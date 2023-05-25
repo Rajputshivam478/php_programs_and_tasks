@@ -4,67 +4,61 @@ $user_id = "";
 if (isset($_REQUEST['edit'])) {
     $user_id = $_REQUEST['edit_user_id'];
 }
+if ($_SESSION['check_id'] == $user_id) {
+    if (isset($_REQUEST['update'])) {
 
-if (isset($conn)) {
-    $result = mysqli_query($conn, "SELECT user.user_id,`fname`,`lname`,`email`,`password`,role.role_id,`role`,`created_date`,`modify_date` FROM `user` INNER JOIN `profile` ON profile.user_id = user.user_id INNER JOIN `role` ON user.role_id = role.role_id WHERE user.user_id = '$user_id'");
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $email = $row['email'];
-        $db_password = $row['password'];
-        $role_id = $row['role_id'];
-        // $user_id = $row['user_id'];
-        $created_date = $row['created_date'];
-        $modify_date = $row['modify_date'];
-        $fname = $row['fname'];
-        $lname = $row['lname'];
-        $role = $row['role'];
-    }
-}
+        $user_id = trim($_REQUEST['user_id']);
+        $email = trim($_REQUEST['email']);
+        $fname = trim($_REQUEST['fname']);
+        $lname = trim($_REQUEST['lname']);
+        $modify_date = trim($_REQUEST['modify_date']);
 
-if (isset($_REQUEST['update'])) {
+        if (strlen($user_id) != 0 && strlen($email) != 0 && strlen($fname) != 0 && strlen($lname) != 0) {
+            if (isset($_FILES['image'])) {
+                // $date = date("y/m/d h:i:s", $actualtime);
+                $filename = $_FILES['image']['name'];
+                $tfilename = $_FILES['image']['tmp_name'];
+                $destination = "images/" . $filename;
+                $size = $_FILES['image']['size'];
+                $type = $_FILES['image']['type'];
 
-    $user_id = $_REQUEST['user_id'];
-    $email = $_REQUEST['email'];
-    $fname = $_REQUEST['fname'];
-    $lname = $_REQUEST['lname'];
-    $modify_date = $_REQUEST['modify_date'];
-
-    if (isset($_FILES['image'])) {
-        // $date = date("y/m/d h:i:s", $actualtime);
-        $filename = $_FILES['image']['name'];
-        $tfilename = $_FILES['image']['tmp_name'];
-        $destination = "images/" . $filename;
-        $size = $_FILES['image']['size'];
-        $type = $_FILES['image']['type'];
-
-        if (move_uploaded_file($tfilename, $destination)) {
-            $finame = pathinfo($filename, PATHINFO_FILENAME);
-            $fextension = pathinfo($filename, PATHINFO_EXTENSION);
-            $filename = $finame . " " . date("y/m/d h:i:s") . "." . $fextension;
-            $result = mysqli_query($conn, "SELECT * FROM `file` WHERE `user_id` = '$user_id'");
-            if (mysqli_num_rows($result) > 0) {
-                $row = mysqli_fetch_assoc($result);
-                echo "update";
-                $result = mysqli_query($conn, "UPDATE `file` SET `size`='$size',`extension`='$fextension',`unique_name`='$tfilename',`name`='$filename',`path`='$destination' WHERE `user_id`='$user_id'");
-                $msg = "file updated";
+                if (move_uploaded_file($tfilename, $destination)) {
+                    $finame = pathinfo($filename, PATHINFO_FILENAME);
+                    $fextension = pathinfo($filename, PATHINFO_EXTENSION);
+                    $filename = $finame . " " . date("y/m/d h:i:s") . "." . $fextension;
+                    $result = mysqli_query($conn, "SELECT * FROM `file` WHERE `user_id` = '$user_id'");
+                    if (mysqli_num_rows($result) > 0) {
+                        $row = mysqli_fetch_assoc($result);
+                        echo "update";
+                        $result = mysqli_query($conn, "UPDATE `file` SET `size`='$size',`extension`='$fextension',`unique_name`='$tfilename',`name`='$filename',`path`='$destination' WHERE `user_id`='$user_id'");
+                        $msg = "file updated";
+                    } else {
+                        $result = mysqli_query($conn, "INSERT INTO `file`(`user_id`, `size`, `extension`, `unique_name`, `name`, `path`) VALUES ('$user_id','$size','$type','$$tfilename','$filename','$destination')");
+                        $msg = "file uploaded";
+                    }
+                }
             } else {
-                $result = mysqli_query($conn, "INSERT INTO `file`(`user_id`, `size`, `extension`, `unique_name`, `name`, `path`) VALUES ('$user_id','$size','$type','$$tfilename','$filename','$destination')");
-                $msg = "file uploaded";
+                $msg = "file not uploaded";
             }
+
+            $result = mysqli_query($conn, "UPDATE `user` SET `email`='$email',`modify_date`='$modify_date' WHERE `user_id`='$user_id'");
+
+            $result = mysqli_query($conn, "UPDATE `profile` SET `fname`='$fname',`lname`='$lname' WHERE `user_id`='$user_id'");
+
+            $role = $_SESSION['role'];
+            if ($role == "admin") {
+                header('location: admin_page.php');
+            } else {
+                header('location: user_profile.php');
+            }
+        } else {
+            $msg = "Incorrect Data..";
         }
-    } else {
-        $msg = "file not uploaded";
     }
-
-    $result = mysqli_query($conn, "UPDATE `user` SET `email`='$email',`modify_date`='$modify_date' WHERE `user_id`='$user_id'");
-
-    $result = mysqli_query($conn, "UPDATE `profile` SET `fname`='$fname',`lname`='$lname' WHERE `user_id`='$user_id'");
-
-    $role = $_SESSION['role'];
-    if ($role == "admin") {
-        header('location: admin_page.php');
-    } else {
-        header('location: user_profile.php');
-    }
+}elseif($user_id == 101){
+    $msg = "you can't change another Admin data";
+}
+else{
+    $msg = "you can't change another user data";
 }
 ?>

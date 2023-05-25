@@ -45,7 +45,7 @@ if (isset($_REQUEST['view'])) {
                     <td>First Name </td>
                     <td>:</td>
                     <td>
-                        <?php echo $fname; ?>
+                        <?php echo $fname ?? null; ?>
                     </td>
                 </tr>
                 <tr>

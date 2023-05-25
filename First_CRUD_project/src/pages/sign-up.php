@@ -80,14 +80,6 @@ include './service/signup_data.php';
                         <td><input required type="password" name="c_password" id="c_password"
                                 class=" p-1 rounded-lg outline-blue-400"></td>
                     </tr>
-                    <tr class="hidden">
-                        <td><label for="created_date">created_date :</label></td>
-                        <td><input required type="datetime" name="created_date" id="created_date" value="<?php echo date("y/m/d h:i:s"); ?>"></td>
-                    </tr>
-                    <tr class="hidden">
-                        <td><label for="created_date">modified_date :</label></td>
-                        <td><input required type="datetime" name="modify_date" id="modified_date" value="<?php echo date("y/m/d h:i:s"); ?>"></td>
-                    </tr>
                     <tr>
                         <td><input type="submit" value="SignUp" name="singup"
                                 class="px-8 py-3 rounded-md block bg-white text-lg font-semibold text-gray-500 hover:text-white hover:bg-blue-400">

@@ -65,6 +65,7 @@ if (isset($_SESSION['email'])) {
                     <tr>
                         <td class="">
                             <form action="edit.php" method="post" class="hover:text-blue-400">
+                                <?php $_SESSION['check_id'] = $user_id ; ?>
                                 <input type="number" name="edit_user_id" value="<?php echo $user_id; ?>" hidden>
                                 <input type="submit" name="edit" value="edit"
                                     class="px-8 py-3 rounded-md bg-white border border-slate-600 text-gray-800 hover:text-white hover:bg-blue-400">
