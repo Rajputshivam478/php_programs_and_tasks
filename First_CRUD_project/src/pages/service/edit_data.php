@@ -4,7 +4,7 @@ $user_id = "";
 if (isset($_REQUEST['edit'])) {
     $user_id = $_REQUEST['edit_user_id'];
 }
-if ($_SESSION['check_id'] == $user_id) {
+if ($_SESSION['user_id'] == $user_id || $_SESSION['role'] == 'admin') {
     if (isset($_REQUEST['update'])) {
 
         $user_id = trim($_REQUEST['user_id']);

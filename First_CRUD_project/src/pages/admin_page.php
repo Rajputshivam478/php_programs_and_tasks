@@ -45,7 +45,6 @@ if (isset($_SESSION['email'])) {
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     if ($row['user_id'] != 101) {
-                                        $_SESSION['check_id'] = $user_id ;
                                         echo '<tr>';
                                         echo '<td class="border-2 border-slate-400">' . $row['user_id'] . '</td>';
                                         echo '<td class="border-2 border-slate-400">' . $row['fname'] . '</td>';
