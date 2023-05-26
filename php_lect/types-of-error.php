@@ -9,7 +9,7 @@ echo "Types of error in php<br><br>";
 //5. logical error
 
 // notice error
-$x =4;
+$x = 4;
 echo $y;
 
 
@@ -22,17 +22,17 @@ include 'type.php';
 //parse error
 function sum()
 {
-    $x= 4;
-    $y=9;
-    echo "sum is",$x + $y
+    $x = 4;
+    $y = 9;
+    echo "sum is", $x + $y;
 }
 
 
 
 //fatel error
-function sum1($x,$y)
+function sum1($x, $y)
 {
-    echo "sum is",$x + $y;
+    echo "sum is", $x + $y;
 }
 
 sum1();
@@ -40,10 +40,10 @@ sum1();
 
 
 //logical error
-function div($x,$y)
+function div($x, $y)
 {
-    echo "division is",$x / $y;
+    echo "division is", $x / $y;
 }
 
-div(10,0);
+div(10, 0);
 ?>
